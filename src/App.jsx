@@ -431,7 +431,65 @@ body {
     align-self: center;
     padding-bottom: 3rem;
   }
+.mobile-choices {
+  display: none;
+}
+   @media (max-width: 768px) {
 
+  /* hide big cards */
+  .characters-row {
+    display: none;
+  }
+
+  /* new mobile list */
+  .mobile-choices {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+
+  .mobile-choice {
+    width: 100%;
+    padding: 1rem 1.2rem;
+    border-radius: 10px;
+    cursor: pointer;
+    border: 1px solid rgba(255,255,255,0.08);
+    background: rgba(255,255,255,0.03);
+    transition: all 0.2s ease;
+    text-align: left;
+  }
+
+  .mobile-choice:hover {
+    background: rgba(255,255,255,0.07);
+  }
+
+  .mobile-choice-title {
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 0.4rem;
+  }
+
+  .mobile-rich {
+    border-left: 3px solid #d4a843;
+  }
+
+  .mobile-poor {
+    border-left: 3px solid #4a7fd4;
+  }
+
+  .mobile-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    margin-bottom: 0.2rem;
+  }
+
+  .mobile-desc {
+    font-size: 0.8rem;
+    color: rgba(240,237,232,0.6);
+  }
+}
   /* Select prompt */
   .select-prompt {
     font-size: 0.8rem;
@@ -471,11 +529,12 @@ body {
     transition: width 0.5s ease;
   }
 
- .scenario-body {
-  flex: 1;
-  display: grid;
-  grid-template-columns: 1.5fr 1fr;
-}
+  .scenario-body {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    min-height: calc(100vh - 70px);
+  }
 
   @media (max-width: 768px) {
     .scenario-body { grid-template-columns: 1fr; }
@@ -489,11 +548,6 @@ body {
   padding: 3rem 2rem;
   position: relative;
   overflow-y: auto;              /* ✅ allow scroll */
-}
-  .scenario-left,
-.scenario-right {
-  padding: 2rem;
-  overflow-y: auto;   /* ✅ allow scroll IF needed */
 }
 
   .scenario-bg-blur {
@@ -971,10 +1025,33 @@ function Landing({ onSelect }) {
             <p className="character-desc">Fighting every day. Fewer choices</p>
           </div>
         </div>
+        <div className="mobile-choices">
+          <div
+            className="mobile-choice mobile-rich"
+            onClick={() => onSelect("rich")}
+          >
+            <div className="mobile-choice-title">THE RICH</div>
+            <div className="mobile-name">Arjun Mehta</div>
+            <div className="mobile-desc">
+              Born into wealth. Every door is open.
+            </div>
+          </div>
 
+          <div
+            className="mobile-choice mobile-poor"
+            onClick={() => onSelect("poor")}
+          >
+            <div className="mobile-choice-title">THE POOR</div>
+            <div className="mobile-name">Raju Kumar</div>
+            <div className="mobile-desc">
+              Fighting every day. Fewer choices.
+            </div>
+          </div>
+        </div>
         <p className="select-prompt">↑ Choose a character to begin your journey ↑</p>
       </div>
     </div>
+
   );
 }
 function ChoicePopup({ choice, character, isLast, onContinue }) {
