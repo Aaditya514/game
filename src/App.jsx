@@ -447,7 +447,59 @@ body {
     min-height: 100vh;
   }
 
+  /*SOUND PAGE*/
+  .audio-start {
+  min-height: 100vh;
+  width: 100%;
+  background: #05050a;
+  display: flex;
+  align-items: center;      /* vertical center */
+  justify-content: center;  /* horizontal center */
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+  text-align: center;
+}
 
+.audio-start-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 40% at 20% 50%, rgba(180,120,40,0.14) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 40% at 80% 50%, rgba(40,80,180,0.14) 0%, transparent 60%);
+}
+
+.audio-start-content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  padding: 2rem;
+  animation: fadeInUp 1s ease forwards;
+}
+
+.audio-start-content h1 {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  line-height: 1.2;               /* IMPORTANT */
+  margin-bottom: 1rem;
+ text-shadow: 0 0 40px rgba(255,255,255,0.08);
+  background: linear-gradient(135deg, #d4a843 0%, #f0ede8 50%, #4a7fd4 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  white-space: normal;            /* allow wrapping */
+}
+
+.audio-start-content p {
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(240,237,232,0.45);
+}
+
+.reveal-characters {
+  animation: fadeInUp 0.9s ease forwards;
+}
   /* ── LANDING ── */
  .landing {
   min-height: 100vh;
@@ -455,6 +507,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
 }
 
   .landing-bg {
@@ -500,7 +553,40 @@ body {
     color: rgba(240,237,232,0.5);
     margin-bottom: 3rem;
   }
+  .sound-intro {
+  margin-top: 4rem;
+  cursor: pointer;
+  animation: fadeInUp 1s ease forwards;
+}
 
+.sound-title {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  color: rgba(240,237,232,0.9);
+  margin-bottom: 0.7rem;
+}
+
+.sound-subtitle {
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(240,237,232,0.4);
+}
+
+.reveal-characters {
+  animation: fadeInUp 0.9s ease forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
   /* Characters */
   .characters-row {
     display: flex;
@@ -1311,67 +1397,186 @@ body {
 `;
 
 // ─── COMPONENTS ───────────────────────────────────────────────────────────────
-
-function Landing({ onSelect }) {
+function AudioStart({ onStart }) {
   return (
-    <div className="landing page-enter">
-      <div className="landing-bg" />
-      {/* <div className="divider-line" /> */}
-      <div className="landing-content">
-        <p className="landing-eyebrow">A Jurisprudence Game on Law, Capitalism & Social Determinism in India</p>
-        <h1 className="landing-title">THE SAME DESTINATION</h1>
-        <p className="landing-subtitle">Walk a mile in different shoes.</p>
-
-        <div className="characters-row">
-          <div className="character-card char-rich" onClick={() => onSelect("rich")}>
-            <img
-              src="/images/arjunlanding.jpeg"   // 👉 your image path
-              alt="Arjun Malhotra"
-              className="character-image"
-            />
-            <p className="character-name">Arjun Malhotra</p>
-            <p className="character-desc">Upper caste | Son of a textile mill owner</p>
-          </div>
-
-          <div className="char-vs">vs</div>
-
-          <div className="character-card char-poor" onClick={() => onSelect("poor")}>
-            <img
-              src="/images/rajulanding.jpeg"   // 👉 your image path
-              alt="Raju Prasad"
-              className="character-image"
-            />
-            <p className="character-name">Raju Prasad</p>
-            <p className="character-desc">Lower caste | Son of a bonded labourer</p>
-          </div>
-        </div>
-        <div className="mobile-choices">
-          <div
-            className="mobile-choice mobile-rich"
-            onClick={() => onSelect("rich")}
-          >
-            <div className="mobile-choice-title">THE RICH</div>
-            <div className="mobile-name">Arjun Malhotra</div>
-            <div className="mobile-desc">
-              Upper caste | Son of a textile mill owner | Mumbai, 1975
-            </div>
-          </div>
-
-          <div
-            className="mobile-choice mobile-poor"
-            onClick={() => onSelect("poor")}
-          >
-            <div className="mobile-choice-title">THE POOR</div>
-            <div className="mobile-name">Raju Prasad</div>
-            <div className="mobile-desc">
-              Dalit | Son of a bonded agricultural labourer | Rural Bihar, 1975
-            </div>
-          </div>
-        </div>
-        <p className="select-prompt">↑ Choose a character to begin your journey ↑</p>
+    <div className="audio-start" onClick={onStart}>
+      <div className="audio-start-bg" />
+      <div className="audio-start-content">
+        <h1>Best experienced with sound</h1>
+        <p>Click anywhere to begin</p>
       </div>
     </div>
+  );
+}
+// function Landing({ onSelect }) {
+//   return (
+//     <div className="landing page-enter">
+//       <div className="landing-bg" />
+//       {/* <div className="divider-line" /> */}
+//       <div className="landing-content">
+//         <p className="landing-eyebrow">A Jurisprudence Game on Law, Capitalism & Social Determinism in India</p>
+//         <h1 className="landing-title">THE SAME DESTINATION</h1>
+//         <p className="landing-subtitle">Walk a mile in different shoes.</p>
 
+//         <div className="characters-row">
+//           <div className="character-card char-rich" onClick={() => onSelect("rich")}>
+//             <img
+//               src="/images/arjunlanding.jpeg"   // 👉 your image path
+//               alt="Arjun Malhotra"
+//               className="character-image"
+//             />
+//             <p className="character-name">Arjun Malhotra</p>
+//             <p className="character-desc">Upper caste | Son of a textile mill owner</p>
+//           </div>
+
+//           <div className="char-vs">vs</div>
+
+//           <div className="character-card char-poor" onClick={() => onSelect("poor")}>
+//             <img
+//               src="/images/rajulanding.jpeg"   // 👉 your image path
+//               alt="Raju Prasad"
+//               className="character-image"
+//             />
+//             <p className="character-name">Raju Prasad</p>
+//             <p className="character-desc">Lower caste | Son of a bonded labourer</p>
+//           </div>
+//         </div>
+//         <div className="mobile-choices">
+//           <div
+//             className="mobile-choice mobile-rich"
+//             onClick={() => onSelect("rich")}
+//           >
+//             <div className="mobile-choice-title">THE RICH</div>
+//             <div className="mobile-name">Arjun Malhotra</div>
+//             <div className="mobile-desc">
+//               Upper caste | Son of a textile mill owner | Mumbai, 1975
+//             </div>
+//           </div>
+
+//           <div
+//             className="mobile-choice mobile-poor"
+//             onClick={() => onSelect("poor")}
+//           >
+//             <div className="mobile-choice-title">THE POOR</div>
+//             <div className="mobile-name">Raju Prasad</div>
+//             <div className="mobile-desc">
+//               Dalit | Son of a bonded agricultural labourer | Rural Bihar, 1975
+//             </div>
+//           </div>
+//         </div>
+//         <p className="select-prompt">↑ Choose a character to begin your journey ↑</p>
+//       </div>
+//     </div>
+
+//   );
+// }
+
+function Landing({ onSelect }) {
+  const [showCharacters, setShowCharacters] = useState(false);
+
+  return (
+    <div
+      className="landing page-enter"
+      onClick={() => {
+        if (!showCharacters) setShowCharacters(true);
+      }}
+    >
+      <div className="landing-bg" />
+
+      <div className="landing-content">
+        <p className="landing-eyebrow">
+          A Jurisprudence Game on Law, Capitalism & Social Determinism in India
+        </p>
+
+        <h1 className="landing-title">THE SAME DESTINATION</h1>
+
+        <p className="landing-subtitle">Walk a mile in different shoes.</p>
+
+        {!showCharacters && (
+          <p className="sound-subtitle">Click anywhere to reveal characters</p>
+        )}
+
+        {showCharacters && (
+          <>
+            {/* DESKTOP CARDS */}
+            <div className="characters-row reveal-characters">
+              <div
+                className="character-card char-rich"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  onSelect("rich");
+                }}
+              >
+                <img
+                  src="/images/arjunlanding.jpeg"
+                  alt="Arjun Malhotra"
+                  className="character-image"
+                />
+                <p className="character-name">Arjun Malhotra</p>
+                <p className="character-desc">
+                  Upper caste | Son of a textile mill owner
+                </p>
+              </div>
+
+              <div className="char-vs">vs</div>
+
+              <div
+                className="character-card char-poor"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  onSelect("poor");
+                }}
+              >
+                <img
+                  src="/images/rajulanding.jpeg"
+                  alt="Raju Prasad"
+                  className="character-image"
+                />
+                <p className="character-name">Raju Prasad</p>
+                <p className="character-desc">
+                  Dalit | Son of a bonded labourer
+                </p>
+              </div>
+            </div>
+
+            {/* MOBILE CHOICES */}
+            <div className="mobile-choices reveal-characters">
+              <div
+                className="mobile-choice mobile-rich"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  onSelect("rich");
+                }}
+              >
+                <div className="mobile-choice-title">THE RICH</div>
+                <div className="mobile-name">Arjun Malhotra</div>
+                <div className="mobile-desc">
+                  Upper caste | Son of a textile mill owner | Mumbai, 1975
+                </div>
+              </div>
+
+              <div
+                className="mobile-choice mobile-poor"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  onSelect("poor");
+                }}
+              >
+                <div className="mobile-choice-title">THE POOR</div>
+                <div className="mobile-name">Raju Prasad</div>
+                <div className="mobile-desc">
+                  Dalit | Son of a bonded agricultural labourer | Rural Bihar, 1975
+                </div>
+              </div>
+            </div>
+
+            <p className="select-prompt reveal-characters">
+              ↑ Choose a character to begin your journey ↑
+            </p>
+          </>
+        )}
+      </div>
+    </div>
   );
 }
 function ChoicePopup({ choice, character, isLast, onContinue }) {
@@ -1685,7 +1890,7 @@ function FinalPage({ onRestart }) {
 
 
 export default function App() {
-  const [page, setPage] = useState("landing"); // landing | scenario | results | final
+  const [page, setPage] = useState("audio");// audio | landing | scenario | results | final
   const [character, setCharacter] = useState(null);
   const [scenarioIndex, setScenarioIndex] = useState(0);
   const [choices, setChoices] = useState([]);
@@ -1760,7 +1965,7 @@ export default function App() {
   };
 
   /* ================== RESTART ================== */
-  
+
   const handleRestart = () => {
     setTransitioning(true);
 
@@ -1792,6 +1997,16 @@ export default function App() {
       <style>{css}</style>
 
       <div className="app">
+        {page === "audio" && (
+          <AudioStart
+            onStart={() => {
+              if (audioRef.current) {
+                audioRef.current.play().catch(() => { });
+              }
+              setPage("landing");
+            }}
+          />
+        )}
         {page === "landing" && (
           <Landing onSelect={handleSelect} />
         )}
