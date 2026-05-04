@@ -1,20 +1,108 @@
+# 🎮 THE SAME DESTINATION
 
-# React + Vite
+A jurisprudence-based interactive narrative game exploring **law, capitalism, and structural inequality in India**.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+> "Walk a mile in different shoes."
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 📖 About the Project
 
-## React Compiler
+**The Same Destination** is an interactive experience where players live through two contrasting lives:
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- 🎩 **Arjun Malhotra** — Upper caste, wealthy, urban privilege  
+- 🧢 **Raju Prasad** — Dalit, rural/working-class struggle  
 
-## Expanding the ESLint configuration
+Both characters exist under the **same Constitution, same laws, same legal system** —  
+but experience **completely different realities**.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
 
-# game
+## 🎯 Core Idea
 
+This is not a game about skill.
+
+This is a game about:
+
+- ⚖️ Access to law  
+- 🏛️ Enforcement vs existence of rights  
+- 💰 Capital and opportunity  
+- 📉 Structural inequality  
+
+---
+
+## 🧠 Learning Focus
+
+The game draws from **Indian jurisprudence** and highlights:
+
+- Bonded Labour System (Abolition) Act  
+- Industrial Disputes Act  
+- Equal Remuneration Act  
+- Atrocities Act  
+- Right to Education  
+- Legal aid and access to justice  
+
+Inspired by:
+
+> "The Indian legal order has been deployed as a monumental resource for the accomplishment of state-regulated capitalism."  
+> — Upendra Baxi
+
+---
+
+## 🎮 Gameplay
+
+- Choose a character
+- Navigate multiple real-world inspired scenarios
+- Make decisions under different constraints
+- Experience locked vs available choices
+- Reach a character-specific ending
+- Reflect through a final philosophical screen
+
+---
+
+## ✨ Features
+
+- 🎨 Cinematic UI & gradient design
+- 🔀 Dual storyline (rich vs poor)
+- 🔒 Locked choices system
+- 💬 Narrative popups
+- 🎵 Background music + transitions
+- 🎬 Full-screen transition effects
+- 🧾 Final reflection screen + credits
+
+---
+
+## 🛠️ Tech Stack
+
+- ⚛️ React
+- 🎨 CSS
+- 🎧 HTML5 Audio
+
+---
+
+## 🚀 Getting Started
+
+```bash
+npm install
+npm run dev
+```
+
+---
+
+## 🎓 Credits
+
+**RANVEER · TIANNA · DRONA**  
+BBALLB SEC A ‘23
+
+---
+
+## 📌 Key Message
+
+> The law exists for everyone.  
+> Access to it does not.
+
+---
+
+## ⚠️ Disclaimer
+
+This project is for educational and critical reflection purposes.
